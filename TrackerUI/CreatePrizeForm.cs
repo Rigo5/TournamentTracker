@@ -28,7 +28,17 @@ namespace TrackerUI
                         PrizeAmountValue.Text,
                         PricePercentageValue.Text
                     );
+                foreach(IDataConnection id in GlobalConfig.Connections)
+                {
+                    //salvo in db e mi torna il form con l id
+                    id.CreatePrize(model);
+                }
             }
+            //Pulire form dopo la creazione 
+            PlaceNumberValue.Text = "";
+            PlaceNameValue.Text = "";
+            PrizeAmountValue.Text = "0";
+            PricePercentageValue.Text = "0";
         }
         // Probabilmente questa cosa ha piu' senso farla all intenro della classe PrizeModel 
         // e poi utilizzare il try/catch 

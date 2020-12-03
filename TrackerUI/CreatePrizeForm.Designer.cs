@@ -108,6 +108,7 @@
             this.PrizeAmountValue.Name = "PrizeAmountValue";
             this.PrizeAmountValue.Size = new System.Drawing.Size(213, 27);
             this.PrizeAmountValue.TabIndex = 30;
+            this.PrizeAmountValue.Text = "0";
             // 
             // PricePercentageLabel
             // 
@@ -127,6 +128,7 @@
             this.PricePercentageValue.Name = "PricePercentageValue";
             this.PricePercentageValue.Size = new System.Drawing.Size(213, 27);
             this.PricePercentageValue.TabIndex = 32;
+            this.PricePercentageValue.Text = "0";
             // 
             // OrLabel
             // 
