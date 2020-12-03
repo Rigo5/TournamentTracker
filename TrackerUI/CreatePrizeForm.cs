@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TrackerLibrary; 
 
 namespace TrackerUI
 {
@@ -19,7 +20,15 @@ namespace TrackerUI
 
         private void CreatePrizeButton_Click(object sender, EventArgs e)
         {
-            ValidateForm();
+            if (ValidateForm())
+            {
+                PrizeModel model = new PrizeModel(
+                        PlaceNumberValue.Text,
+                        PlaceNameValue.Text,
+                        PrizeAmountValue.Text,
+                        PricePercentageValue.Text
+                    );
+            }
         }
         // Probabilmente questa cosa ha piu' senso farla all intenro della classe PrizeModel 
         // e poi utilizzare il try/catch 
@@ -50,12 +59,19 @@ namespace TrackerUI
                 MessageBox.Show("Inserire nome piazzamento");
             }
 
-            decimal amount = 0; 
-            if (!decimal.TryParse(PrizeAmountValue.Text, out amount ))
+            decimal amount = 0;
+            int PrizePercentage = 0;
+
+            if (!decimal.TryParse(PrizeAmountValue.Text, out amount ) || !int.TryParse(PricePercentageValue.Text, out PrizePercentage))
             {
                 output = false;
             }
 
+            if(amount <= 0 && PrizePercentage <= 0)
+            {
+                MessageBox.Show("Prize amount/percentage is not in the rigth format");
+                output = false; 
+            }
 
             return output; 
         }
