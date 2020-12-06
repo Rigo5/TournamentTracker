@@ -19,7 +19,7 @@ namespace TrackerUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Inizializza le connessioni 
-            TrackerLibrary.GlobalConfig.InizializeConnection(true, true);
+            GlobalConfig.InizializeConnection(true, true);
             // non finere questa applicazione fino a quando questo non viene chiuso 
             Application.Run(new CreatePrizeForm());
         }

@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnessioniPazze\TextConnector.cs" />
     <Compile Include="CreatePrizeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +66,8 @@
     <Compile Include="CreateTournamentForm.Designer.cs">
       <DependentUpon>CreateTournamentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConnessioniPazze\TextConnectorProcessor.cs" />
+    <Compile Include="Generals\GlobalConfig.cs" />
     <Compile Include="TournamentDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,7 +80,7 @@
     <Compile Include="TournamentViewerForm.Designer.cs">
       <DependentUpon>TournamentViewerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Generals\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CreatePrizeForm.resx">
       <DependentUpon>CreatePrizeForm.cs</DependentUpon>

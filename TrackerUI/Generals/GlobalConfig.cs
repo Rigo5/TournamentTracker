@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using TrackerLibrary.Connections;
 
-namespace TrackerLibrary
+namespace TrackerUI
 {
     /*Questa classe rispecchia le configurazione generali dell'applicazione*/
     public static class GlobalConfig
