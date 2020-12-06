@@ -7,6 +7,11 @@ namespace TrackerLibrary.Connections
 {
     public class SQLConnector : IDataConnection
     {
+        public PersonModel CreatePerson(PersonModel person)
+        {
+            return person; 
+        }
+
         public PrizeModel CreatePrize(PrizeModel model)
         {
             /// <summary>

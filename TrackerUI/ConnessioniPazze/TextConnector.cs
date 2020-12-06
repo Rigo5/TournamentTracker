@@ -14,6 +14,18 @@ namespace TrackerUI
     public class TextConnector : IDataConnection
     {
         private const string PrizesFile = "PrizeModels.csv";
+
+        public PersonModel CreatePerson(PersonModel person)
+        {
+            //Leggo le persone nel mio registro 
+            //Da List<string> lo porto a List<Person>
+            //Leggo id 
+            //Metto nel corrente l'id 
+            //riconverto a List<string> 
+            //salvo
+            return person; 
+        }
+
         public PrizeModel CreatePrize(PrizeModel model)
         {
             // Wire up the connection for text file 

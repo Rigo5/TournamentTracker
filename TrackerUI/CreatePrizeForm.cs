@@ -22,6 +22,7 @@ namespace TrackerUI
 
         private void CreatePrizeButton_Click(object sender, EventArgs e)
         {
+            //valido e creo la persona
             if (ValidateForm())
             {
                 PrizeModel model = new PrizeModel(
