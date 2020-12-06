@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TrackerLibrary.Models;
 
-namespace TrackerLibrary
+namespace TrackerLibrary.Connections
 {
     /*
      Questa interfaccia ti dice semplicemnte che il profilo verra salvato e verrra' tornato un profilo, 

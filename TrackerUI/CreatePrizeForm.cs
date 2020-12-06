@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TrackerLibrary; 
+using TrackerLibrary;
+using TrackerLibrary.Connections;
+using TrackerLibrary.Models;
 
 namespace TrackerUI
 {
@@ -33,12 +35,14 @@ namespace TrackerUI
                     //salvo in db e mi torna il form con l id
                     id.CreatePrize(model);
                 }
+
+                //Pulire form dopo la creazione 
+                PlaceNumberValue.Text = "";
+                PlaceNameValue.Text = "";
+                PrizeAmountValue.Text = "0";
+                PricePercentageValue.Text = "0";
             }
-            //Pulire form dopo la creazione 
-            PlaceNumberValue.Text = "";
-            PlaceNameValue.Text = "";
-            PrizeAmountValue.Text = "0";
-            PricePercentageValue.Text = "0";
+            
         }
         // Probabilmente questa cosa ha piu' senso farla all intenro della classe PrizeModel 
         // e poi utilizzare il try/catch 

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TrackerLibrary.Models;
 
-namespace TrackerLibrary
+namespace TrackerLibrary.Connections
 {
     /* Il connettore e' come quello di boomi,
      siccome stiamo andando a scrivere allora dobbiamo passargli un profilo,
