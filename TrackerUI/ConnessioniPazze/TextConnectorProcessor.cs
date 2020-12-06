@@ -23,6 +23,7 @@ namespace TrackerUI
             //c:\data\TournamentTracker\filename.csv
             return $"{ConfigurationManager.AppSettings["filePath"]}\\{filename}";
         }
+        //vale per tutti i model 
         public static List<string> LoadFile(this string file)
         {
             if (!File.Exists(file)) //File.exist ritorna un bool
@@ -35,9 +36,9 @@ namespace TrackerUI
             }
             return File.ReadAllLines(file).ToList();
         }
-        public static List<PrizeModel> ConvertToPrizeModel(this List<string> lines)
+        public static List<IModel> ConvertToPrizeModel(this List<string> lines)
         {
-            List<PrizeModel> output = new List<PrizeModel>();
+            List<IModel> output = new List<IModel>();
             foreach(string line in lines)
             {
                 //splitto la linea utilizzando la comma 
@@ -56,7 +57,18 @@ namespace TrackerUI
             }
             return output;
         }
-        public static void SaveToPrizeFile(this List<PrizeModel> models, string filename) {
+        //Ritorno id da mettere. Vale per tutti i modelli 
+        public static int GetId(this List<IModel> ModelList)
+        {
+            int id = 1;
+            if(ModelList.Count() > 0)
+            {
+                return ModelList.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            return id; 
+        }
+        //vale per tutti
+        public static void SaveToPrizeFile(this List<IModel> models, string filename) {
             List<string> lines = new List<string>();
             foreach(PrizeModel p in models)
             {

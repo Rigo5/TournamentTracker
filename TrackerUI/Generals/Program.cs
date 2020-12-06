@@ -21,7 +21,7 @@ namespace TrackerUI
             //Inizializza le connessioni 
             GlobalConfig.InizializeConnection(true, true);
             // non finere questa applicazione fino a quando questo non viene chiuso 
-            Application.Run(new CreateTeamForm());
+            Application.Run(new CreatePrizeForm());
         }
     }
 }

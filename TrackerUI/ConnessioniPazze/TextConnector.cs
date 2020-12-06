@@ -32,16 +32,10 @@ namespace TrackerUI
             // Load text file e ci entra una list<string> 
             // Convert text to list of prize model
             //abbiamo creato extension methods 
-            List<PrizeModel> prizes = PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModel();
+            List<IModel> prizes = PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModel();
             // Find max id 
-            int currentId = 1;
-
-            if(prizes.Count() > 0)
-            {
-                currentId = prizes.OrderByDescending(x => x.Id).First().Id + 1;
-            }
             //settig the new Id
-            model.Id = currentId;
+            model.Id = prizes.GetId();
             // Add new record with new id (max + 1)
             prizes.Add(model);
             // Convert the prizes to a list<string>

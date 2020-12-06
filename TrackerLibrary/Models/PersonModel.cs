@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrackerLibrary.Models
 {
-    public class PersonModel
+    public class PersonModel: IModel
     {
         /// <summary>
         /// Nome
@@ -22,6 +22,8 @@ namespace TrackerLibrary.Models
         /// Numero di telefono
         /// </summary>
         public string PhoneNumber { get; set; }
+        public int Id { get ; set ; }
+
         public PersonModel(string name, string surname, string email, string phone)
         {
             this.FirstName = name;

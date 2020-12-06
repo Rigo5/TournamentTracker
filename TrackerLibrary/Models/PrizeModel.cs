@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TrackerLibrary.Models
 {
-    public class PrizeModel
+    public class PrizeModel: IModel
     {
         /// <summary>
         /// Keyy value nel DB o text file 
