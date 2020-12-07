@@ -14,15 +14,24 @@ namespace TrackerUI
     public class TextConnector : IDataConnection
     {
         private const string PrizesFile = "PrizeModels.csv";
+        private const string PersonFile = "PersonModels.csv";
+        public static void PrintPersons()
+        {
+
+        }
 
         public PersonModel CreatePerson(PersonModel person)
         {
             //Leggo le persone nel mio registro 
             //Da List<string> lo porto a List<Person>
+            List<IModel> persons = PersonFile.FullFilePath().LoadFile().ConvertToPersonModel();
             //Leggo id 
             //Metto nel corrente l'id 
+            person.Id = persons.GetId();
             //riconverto a List<string> 
+            persons.Add(person);
             //salvo
+            persons.SaveToPersonFile(PersonFile);
             return person; 
         }
 

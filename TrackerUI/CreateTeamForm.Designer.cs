@@ -222,6 +222,7 @@
             this.TeamMebersListBox.Name = "TeamMebersListBox";
             this.TeamMebersListBox.Size = new System.Drawing.Size(263, 227);
             this.TeamMebersListBox.TabIndex = 23;
+            this.TeamMebersListBox.SelectedIndexChanged += new System.EventHandler(this.TeamMebersListBox_SelectedIndexChanged);
             // 
             // DeleteSelectedMemberButton
             // 

@@ -36,10 +36,9 @@ namespace TrackerUI
             }
             return File.ReadAllLines(file).ToList();
         }
-        public static List<IModel> ConvertToPrizeModel(this List<string> lines)
-        {
+        public static List<IModel> ConvertToPrizeModel(this List<string> lines) {
             List<IModel> output = new List<IModel>();
-            foreach(string line in lines)
+            foreach (string line in lines)
             {
                 //splitto la linea utilizzando la comma 
                 //mi esce quindi un array si stringhe 
@@ -53,10 +52,34 @@ namespace TrackerUI
                 p.PrizePercentage = double.Parse(cols[4]);
 
                 output.Add(p);
-                
+
             }
             return output;
         }
+        //convert to person list 
+        public static List<IModel> ConvertToPersonModel(this List<string> lines)
+        {
+            List<IModel> output = new List<IModel>();
+            foreach (string line in lines)
+            {
+                //splitto la linea utilizzando la comma 
+                //mi esce quindi un array si stringhe 
+                string[] cols = line.Split(',');
+
+                PersonModel p = new PersonModel();
+                p.Id = int.Parse(cols[0]);
+                p.FirstName = cols[1];
+                p.LastName = cols[2];
+                p.EmailAddress = cols[3];
+                p.PhoneNumber = cols[4];
+
+                output.Add(p);
+
+            }
+            //ritorna la lista di persone trvate 
+            return output;
+        }
+
         //Ritorno id da mettere. Vale per tutti i modelli 
         public static int GetId(this List<IModel> ModelList)
         {
@@ -67,7 +90,6 @@ namespace TrackerUI
             }
             return id; 
         }
-        //vale per tutti
         public static void SaveToPrizeFile(this List<IModel> models, string filename) {
             List<string> lines = new List<string>();
             foreach(PrizeModel p in models)
@@ -76,6 +98,16 @@ namespace TrackerUI
             }
 
             File.WriteAllLines(filename.FullFilePath(), lines);
-        } 
+        }
+        public static void SaveToPersonFile(this List<IModel> person, string filename)
+        {
+            List<string> lines = new List<string>();
+            foreach (PersonModel p in person)
+            {
+                lines.Add($"{ p.Id },{ p.FirstName },{ p.LastName },{ p.EmailAddress },{ p.PhoneNumber }");
+            }
+
+            File.WriteAllLines(filename.FullFilePath(), lines);
+        }
     }
 }

@@ -31,5 +31,9 @@ namespace TrackerLibrary.Models
             this.EmailAddress = email;
             this.PhoneNumber = phone; 
         }
+        public PersonModel()
+        {
+
+        }
     }
 }

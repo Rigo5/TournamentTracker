@@ -51,6 +51,7 @@ namespace TrackerUI
             {
                 MessageBox.Show("The format of something is not right pls review");
             }
+            //aggiornare bind source
         }
         private bool ValidateForm()
         {
@@ -65,5 +66,10 @@ namespace TrackerUI
             }
             return true;
     }
+
+        private void TeamMebersListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
